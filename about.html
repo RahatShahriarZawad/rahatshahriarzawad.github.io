@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Md Rahat Shahriar Zawad</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Updated Font Awesome CSS CDN for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <style>
+/* About section specific styles */
+.about-section {
+  padding: 80px 60px;
+  background-color: #f1f3f8;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+#profile-picture {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #333;
+  margin-bottom: 15px;
+}
+
+.department-text {
+  font-size: 1.2rem;
+  color: #555;
+  text-align: center;
+  margin: 5px 0;
+}
+
+.about-text {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.8;
+  margin: 10px 0;
+  text-align: justify;
+}
+
+.social-links a {
+  font-size: 1.8rem;
+  margin: 0 15px;
+}
+
+.info-sections {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.info-section {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.info-section h3 {
+  font-size: 1.8rem;
+  color: #0056b3;
+  margin-bottom: 15px;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="about.html">Md Rahat Shahriar Zawad</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="about.html">Bio</a></li>
+        <li class="nav-item"><a class="nav-link" href="education_experience.html">Education & Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="publications_projects.html">Publications & Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <div class="container about-section">
+    <h2 class="section-title">Bio</h2>
+    <div class="row align-items-center">
+      <!-- Left Column: Image, Name, Affiliation, and Social Links -->
+      <div class="col-md-4 text-center">
+        <img src="https://media.licdn.com/dms/image/v2/C5603AQHpsdNpf76pDQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1643207060164?e=1735171200&v=beta&t=GARTr45KGeNKp5uy37hhN_eqAUjYghhoAkU3g-ig9gM" alt="Your Photo" id="profile-picture">
+        
+        <h1>Md Rahat Shahriar Zawad</h1>
+        <p class="department-text">MS Student (Computer Science)</p>
+        <p class="department-text">Department of ICS, University of Hawaii at Manoa, Hawaii, USA</p>
+        
+        <!-- Social Links with Icons -->
+        <div class="social-links">
+          <a href="https://linkedin.com/in/rahat-shahriar-zawad" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/RahatShahriarZawad" target="_blank"><i class="fab fa-github mx-3"></i></a>
+          <a href="https://scholar.google.com/citations?user=DRMNtvMAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+          <a href="mailto:zawad@hawaii.edu"><i class="fas fa-envelope mx-3"></i></a>
+        </div>
+      </div>
+      
+      <!-- Right Column: About Text, Research Interests, and Education -->
+      <div class="col-md-8">
+        <p class="about-text">
+            I am an MS student in Computer Science at the University of Hawaii at Manoa, specializing in digital health and Fair Machine Learning. My work as a Graduate Research Assistant at the Hawaii Digital Health Lab, under the mentorship of <a href="https://www.peterwashington.net/">Dr. Peter Washington</a>, involves building data-driven, AI-enabled solutions that address real-world health challenges with a strong emphasis on inclusivity and ethical practices. This role encompasses everything from acquiring and analyzing complex health data to developing algorithms that support early detection and accessible healthcare interventions. Additionally, as a Teaching Assistant, I guide students in mastering database management and foundational computer science, fostering both my own growth and that of future tech innovators.
+        </p>
+        <p class="about-text">
+            I hold a BSc in Information and Communication Engineering from the Bangladesh University of Professionals, where I conducted research under the guidance of <a href = "https://sites.google.com/view/mskaiser/">Dr. M. Shamim Kaiser</a>. My undergraduate work in predictive modeling and data-driven approaches laid the groundwork for my current focus on ethical AI technologies that serve societal needs. Committed to advancing digital health technologies that are fair, equitable, and impactful, I am motivated by a mission to merge research and teaching, aspiring to shape the future of healthcare technology with a strong ethical foundation.
+        </p>
+        
+        <!-- Research Interests and Education Side by Side -->
+        <div class="info-sections">
+          <!-- Research Interests Section -->
+          <div class="info-section">
+            <h3>Research Interests</h3>
+            <ul>
+              <li>Digital Health</li>
+              <li>Fair ML</li>
+              <li>AI in Healthcare</li>
+              <li>Wearable Sensor Data</li>
+            </ul>
+          </div>
+
+          <!-- Education Section -->
+          <div class="info-section">
+            <h3>Education</h3>
+            <ul>
+              <li>MS in Computer Science <br> - University of Hawaii at Manoa</li>
+              <li>BSc in Information and Communication Engineering <br> - Bangladesh University of Professionals</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; Rahat</p>
+  </footer>
+
+</body>
+</html>

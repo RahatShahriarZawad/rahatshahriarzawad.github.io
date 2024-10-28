@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education & Experience - Md Rahat Shahriar Zawad</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="style.css" rel="stylesheet">
+  <style>
+/* Timeline specific styles */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 60px;
+}
+
+.timeline-entry {
+  display: flex;
+  margin-bottom: 50px;
+  position: relative;
+  align-items: flex-start;
+}
+
+.date-range {
+  font-size: 0.9rem;
+  color: #888;
+  width: 200px;
+  text-align: left;
+  padding-right: 30px;
+  margin-right: 10px;
+}
+
+.timeline-entry::before {
+  content: "";
+  position: absolute;
+  left: 150px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: #cccccc;
+}
+
+.timeline-content {
+  padding-left: 20px;
+  width: calc(100% - 220px);
+  position: relative;
+}
+
+.timeline-content.education::before,
+.timeline-content.experience::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: -35px;
+  top: 0;
+  font-size: 1.5rem;
+  color: #02104e;
+}
+
+.timeline-content.education::before {
+  content: "\f19d";
+}
+
+.timeline-content.experience::before {
+  content: "\f0b1";
+}
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="about.html">Md Rahat Shahriar Zawad</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="about.html">Bio</a></li>
+        <li class="nav-item"><a class="nav-link" href="education_experience.html">Education & Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="publications_projects.html">Publications & Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Education and Experience Section -->
+  <div class="container section-container">
+
+    <!-- Education Section -->
+    <h2 class="section-title">Education</h2>
+    <div class="timeline">
+
+      <!-- Education Entry 1 -->
+      <div class="timeline-entry">
+        <span class="date-range">Aug 2023 - Jul 2025</span>
+        <div class="timeline-content education">
+          <h4>University of Hawaii at Manoa</h4>
+          <p class="institution">MS in Computer Science, Hawaii, USA</p>
+          <ul class="achievements">
+            <li>Current CGPA: 3.86 / 4.00</li>
+            <li>Thesis: Ongoing</li>
+            </ul>
+        </div>
+      </div>
+
+      <!-- Education Entry 2 -->
+      <div class="timeline-entry">
+        <span class="date-range">Jan 2018 - Dec 2021</span>
+        <div class="timeline-content education">
+          <h4>Bangladesh University of Professionals</h4>
+          <p class="institution">BSc in Information and Communication Engineering, Dhaka, Bangladesh</p>
+          <ul class="achievements">
+            <li>Final CGPA: 3.89 / 4.00</li>
+            <li>Thesis:<a href = "https://drive.google.com/file/d/1qukiPo5lXako9LkzDHPC4jsMe0XcX9K2/view?usp=sharing"> Stress Prediction Using Heart Rate Variability</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Experience Section -->
+    <h2 class="section-title">Work Experience</h2>
+    <div class="timeline">
+
+      <!-- Experience Entry 1 -->
+      <div class="timeline-entry">
+        <span class="date-range">Jan 2024 - Continue</span>
+        <div class="timeline-content experience">
+          <h4>Graduate Research Assistant</h4>
+          <p class="organization">Hawaii Digital Health Lab, University of Hawaii at Manoa, Hawaii, USA</p>
+          <ul class="responsibilities">
+            <li>Designed and implemented a fair feature selection strategy for Machine Learning in Healthcare. (Currently working on an optimized and complete version to submit in Journals) <a href="https://arxiv.org/pdf/2403.19165">ArXiv Link</a></li>
+            <li>Assisted in building and redesigning a gamified website for collecting keystroke and mouse trace data for Parkinson’s detection. <a href="https://parkinsonsurvey.github.io/src/index.html">Website Link</a></li>
+            <li>Worked on building multimodal deep learning models incorporating Vision Transformer, Shifting Window Transformer, Densenet, Resnet, etc., to detect different stages of Parkinson’s disease from Mouse trace data. <a href="#">MedXiv Link</a></li>
+            <li>Lead a co-design session with other researchers to design a gamified website for fair and remote Parkinson’s Detection.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Experience Entry 2 -->
+      <div class="timeline-entry">
+        <span class="date-range">Aug 2023 - Dec 2023, May 2024 - Continue</span>
+        <div class="timeline-content experience">
+          <h4>Graduate Teaching Assistant</h4>
+          <p class="organization">Department of ICS, University of Hawaii at Manoa, Hawaii, USA</p>
+          <ul class="responsibilities">
+            <li>Assisted in teaching, grading, and management of Intro to Computer Science I (Fall 2024), Database Management System (Summer 2024), Intro to Computer Science II (Summer 2024), and Data Networks (Fall 2023 and Summer 2024) courses.</li>
+            <li>Conducted labs training students in JAVA programming (Intro to Computer Science I, Intro to Computer Science II, Database Management System).</li>
+            <li>Held office hours to guide and help students apart from class hours.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Experience Entry 3 -->
+      <div class="timeline-entry">
+        <span class="date-range">Feb 2022 - Dec 2022</span>
+        <div class="timeline-content experience">
+          <h4>Research Fellow</h4>
+          <p class="organization">DiversAsia Project, Jahangirnagar University, Bangladesh</p>
+          <ul class="responsibilities">
+            <li>Assisted in literature review, analysis, and writing research papers, reports for a funded research study.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Experience Entry 4 -->
+      <div class="timeline-entry">
+        <span class="date-range">Feb 2021 - Mar 2021</span>
+        <div class="timeline-content experience">
+          <h4>Intern</h4>
+          <p class="organization">Sterling Multi-Technologies Ltd, Uttara, Dhaka, Bangladesh</p>
+          <ul class="responsibilities">
+            <li>Gained practical knowledge and hands-on training about hospital automation software, database management, equipment, networking, and workflow of patient health information system at National Institute of Neuroscience and Dhaka Medical College Hospital.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Rahat</p>
+  </footer>
+
+</body>
+</html>
