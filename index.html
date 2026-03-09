@@ -3,132 +3,611 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - Md Rahat Shahriar Zawad</title>
+  <title>Md Rahat Shahriar Zawad</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Updated Font Awesome CSS CDN for icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
   <style>
-/* About section specific styles */
-.about-section {
-  padding: 80px 60px;
-  background-color: #f1f3f8;
-  border-radius: 12px;
-  margin: 20px auto;
-  max-width: 1200px;
-}
+    /* Bio section */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;  /* was 260px */
+      gap: 60px;
+      align-items: start;
+    }
 
-#profile-picture {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #333;
-  margin-bottom: 15px;
-}
+    .profile-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--amber);
+      padding: 44px 32px;  /* was 32px 24px */
+      text-align: center;
+      border-radius: 4px;
+      position: sticky;
+      top: 80px;
+    }
 
-.department-text {
-  font-size: 1.2rem;
-  color: #555;
-  text-align: center;
-  margin: 5px 0;
-}
+    #profile-picture {
+      width: 200px;   /* was 160px */
+      height: 200px;  /* was 160px */
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--amber);
+      margin-bottom: 20px;  /* was 16px */
+    }
 
-.about-text {
-  font-size: 1.2rem;
-  color: #555;
-  line-height: 1.8;
-  margin: 10px 0;
-  text-align: justify;
-}
+    .profile-card h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;  /* was 1.35rem */
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
 
-.social-links a {
-  font-size: 1.8rem;
-  margin: 0 15px;
-}
+    .profile-card .affil {
+      font-size: 0.88rem;  /* was 0.82rem */
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
 
-.info-sections {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 30px;
-}
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
-.info-section {
-  flex: 1;
-  margin: 0 10px;
-}
+    .social-links a {
+      width: 38px;
+      height: 38px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      font-size: 1rem;
+      transition: background 0.2s, color 0.2s;
+    }
 
-.info-section h3 {
-  font-size: 1.8rem;
-  color: #0056b3;
-  margin-bottom: 15px;
-}
+    .social-links a:hover {
+      background: var(--amber);
+      color: white;
+      opacity: 1;
+    }
+
+    .bio-text {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #3a3a3a;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .edu-list {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--navy);
+      padding: 24px 28px;
+      border-radius: 4px;
+      margin-top: 30px;
+    }
+
+    .edu-list h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .edu-list li {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    /* Timeline */
+    .timeline-entry {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 30px;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .timeline-entry.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .date-col {
+      text-align: right;
+      padding-top: 4px;
+    }
+
+    .date-range {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .entry-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--amber);
+      padding: 22px 28px;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .entry-card.edu { border-left-color: var(--navy); }
+
+    .entry-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .entry-card .sub {
+      font-size: 0.88rem;
+      color: var(--amber);
+      font-weight: 500;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .entry-card ul {
+      font-size: 0.93rem;
+      color: #4a4a4a;
+      padding-left: 18px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .entry-card ul li { margin-bottom: 6px; }
+
+    .icon-dot {
+      position: absolute;
+      left: -14px;
+      top: 22px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    /* Publications */
+    .pub-list { list-style: none; padding: 0; }
+
+    .pub-item {
+      display: flex;
+      gap: 18px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .pub-item.visible { opacity: 1; transform: translateY(0); }
+
+    .pub-badge {
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 3px;
+      height: fit-content;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-year { background: var(--navy); color: white; }
+    .badge-review { background: var(--amber); color: white; }
+
+    .pub-body { flex: 1; }
+
+    .pub-body strong {
+      font-size: 1rem;
+      color: var(--navy);
+      display: block;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .pub-body .authors {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .pub-body .venue {
+      font-size: 0.85rem;
+      color: var(--amber);
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--navy);
+      border-radius: 4px;
+      padding: 24px;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.5s, transform 0.5s, box-shadow 0.2s;
+    }
+
+    .project-card.visible { opacity: 1; transform: translateY(0); }
+    .project-card:hover { box-shadow: 0 6px 20px rgba(28,43,74,0.1); }
+
+    .project-card h5 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .tools-tag {
+      display: inline-block;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 20px;
+      color: var(--muted);
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+
+    /* Page sections */
+    .page-section { margin-bottom: 80px; }
+
+    /* Nav active highlight */
+    .nav-link.active { color: var(--amber) !important; }
+
+    @media (max-width: 768px) {
+      .bio-grid { grid-template-columns: 1fr; }
+      .profile-card { position: static; }
+      .timeline-entry { grid-template-columns: 1fr; }
+      .date-col { text-align: left; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.html">Md Rahat Shahriar Zawad</a>
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#bio">Md Rahat Shahriar Zawad</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Bio</a></li>
-        <li class="nav-item"><a class="nav-link" href="education_experience.html">Education & Experience</a></li>
-        <li class="nav-item"><a class="nav-link" href="publications_projects.html">Publications & Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bio">Bio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+        <li class="nav-item"><a class="nav-link" href="#experiences">Experiences</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- About Section -->
-  <div class="container about-section">
-    <h2 class="section-title">Bio</h2>
-    <div class="row align-items-center">
-      <!-- Left Column: Image, Name, Affiliation, and Social Links -->
-      <div class="col-md-4 text-center">
-        <img src="RahatPic.jpeg" alt="Your Photo" id="profile-picture">
-        
-        <h1>Md Rahat Shahriar Zawad</h1>
-        <p class="department-text">MS Student (Computer Science)</p>
-        <p class="department-text">Department of ICS, University of Hawaii at Manoa, Hawaii, USA</p>
-        
-        <!-- Social Links with Icons -->
-        <div class="social-links">
-          <a href="https://linkedin.com/in/rahat-shahriar-zawad" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/RahatShahriarZawad" target="_blank"><i class="fab fa-github mx-3"></i></a>
-          <a href="https://scholar.google.com/citations?user=DRMNtvMAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-          <a href="mailto:zawad@hawaii.edu"><i class="fas fa-envelope mx-3"></i></a>
+  <div class="page-wrapper">
+
+    <!-- Bio -->
+    <section id="bio" class="page-section">
+      <div class="bio-grid">
+        <div class="profile-card fade-in">
+          <img src="RahatPic.jpeg" alt="Rahat's Photo" id="profile-picture">
+          <h1>Md Rahat Shahriar Zawad</h1>
+          <p class="affil">MS Student, Computer Science<br>University of Hawaiʻi at Mānoa<br>Honolulu, HI, USA</p>
+          <div class="social-links">
+            <a href="https://linkedin.com/in/rahat-shahriar-zawad" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/RahatShahriarZawad" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://scholar.google.com/citations?user=DRMNtvMAAAAJ" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            <a href="mailto:zawad@hawaii.edu" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="section-title fade-in">Bio</h2>
+          <p class="bio-text fade-in">
+            I am an MS student in Computer Science at the University of Hawaiʻi at Mānoa. As a Graduate Research Assistant at the <strong>Hawaii Digital Health Lab</strong>, under the mentorship of <a href="https://www.peterwashington.net/">Dr. Peter Washington</a>, my work centers on building data-driven, AI-enabled solutions that address real-world health challenges — with a strong emphasis on inclusivity and ethical practice. My responsibilities span data acquisition and analysis, algorithm development, and designing interventions for early detection and accessible healthcare.
+          </p>
+          <p class="bio-text fade-in">
+            I hold a BSc in Information and Communication Engineering from <strong>Bangladesh University of Professionals</strong>, where I conducted research under <a href="https://sites.google.com/view/mskaiser/">Dr. M. Shamim Kaiser</a>. My undergraduate work in predictive modeling and data-driven methods laid the foundation for my current focus on fair, equitable AI technologies that serve societal needs. I am motivated by the intersection of research and teaching, aspiring to shape healthcare technology through an ethical and rigorous lens.
+          </p>
         </div>
       </div>
-      
-      <!-- Right Column: About Text, Research Interests, and Education -->
-      <div class="col-md-8">
-        <p class="about-text">
-            I am an MS student in Computer Science at the University of Hawaii at Manoa. My work as a Graduate Research Assistant at the Hawaii Digital Health Lab, under the mentorship of <a href="https://www.peterwashington.net/">Dr. Peter Washington</a>, involves building data-driven, AI-enabled solutions that address real-world health challenges with a strong emphasis on inclusivity and ethical practices. This role encompasses everything from acquiring and analyzing complex health data to developing algorithms that support early detection and accessible healthcare interventions. Additionally, as a Teaching Assistant, I guide students in mastering database management and foundational computer science, fostering both my own growth and that of future tech innovators.
-        </p>
-        <p class="about-text">
-            I hold a BSc in Information and Communication Engineering from the Bangladesh University of Professionals, where I conducted research under the guidance of <a href = "https://sites.google.com/view/mskaiser/">Dr. M. Shamim Kaiser</a>. My undergraduate work in predictive modeling and data-driven approaches laid the groundwork for my current focus on ethical AI technologies that serve societal needs. Committed to advancing digital health technologies that are fair, equitable, and impactful, I am motivated by a mission to merge research and teaching, aspiring to shape the future of healthcare technology with a strong ethical foundation.
-        </p>
-        
-        <!-- Research Interests and Education Side by Side -->
+    </section>
 
+    <!-- Education & Experience -->
+    <section id="education" class="page-section">
 
-          <!-- Education Section -->
-          <div class="info-section">
-            <h3>Education</h3>
+      <div style="margin-bottom: 50px;">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline">
+
+        <div class="timeline-entry">
+          <div class="date-col"><span class="date-range">Aug 2025 – Present</span></div>
+          <div class="entry-card edu">
+            <div class="icon-dot"><i class="fas fa-graduation-cap"></i></div>
+            <h4>Rice University</h4>
+            <p class="sub">PhD in Electrical and Computer Engineering · Houston, TX, USA</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry">
+          <div class="date-col"><span class="date-range">Aug 2023 – Jul 2025</span></div>
+          <div class="entry-card edu">
+            <div class="icon-dot"><i class="fas fa-graduation-cap"></i></div>
+            <h4>University of Hawaiʻi at Mānoa</h4>
+            <p class="sub">MS in Computer Science · Honolulu, HI, USA</p>
             <ul>
-              <li>MS in Computer Science <br> - University of Hawaii at Manoa</li>
-              <li>BSc in Information and Communication Engineering <br> - Bangladesh University of Professionals</li>
+              <li>CGPA: 3.91 / 4.00</li>
+              <li>Thesis: <em>Accessible Parkinson's Disease Detection from a Gamified Website: Deep Learning Using Mouse Trace Data and Bias Mitigation</em></li>
             </ul>
           </div>
         </div>
+
+          <div class="timeline-entry">
+            <div class="date-col"><span class="date-range">Jan 2018 – Dec 2021</span></div>
+            <div class="entry-card edu">
+              <div class="icon-dot"><i class="fas fa-graduation-cap"></i></div>
+              <h4>Bangladesh University of Professionals</h4>
+              <p class="sub">BSc in Information and Communication Engineering · Dhaka, Bangladesh</p>
+              <ul>
+                <li>CGPA: 3.89 / 4.00</li>
+                <li>Thesis: <a href="https://drive.google.com/file/d/1qukiPo5lXako9LkzDHPC4jsMe0XcX9K2/view?usp=sharing">Stress Prediction Using Heart Rate Variability</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
+
+
+
+          <!-- Publications & Projects -->
+    <section id="publications" class="page-section">
+
+      <div style="margin-bottom: 50px;">
+        <h2 class="section-title">Publications</h2>
+        <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-badge badge-year">2026</span>
+          <div class="pub-body">
+            <strong>[8] Multi-Adversarial Debiasing in Clinical Artificial Intelligence</strong>
+            <p class="authors">Md Rahat Shahriar Zawad, Irene Y Chen, Peter Washington</p>
+            <p class="venue">AMIA Annual Symposium Proceedings 2025</p>
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12919582/">PubMed →</a>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <span class="pub-badge badge-year">2025</span>
+          <div class="pub-body">
+            <strong>[7] Quantifying Device Type and Handedness Biases in a Remote Parkinson's Disease AI-Powered Assessment</strong>
+            <p class="authors">Zerin Nasrin Tumpa, Md Rahat Shahriar Zawad, Lydia Sollis, Shubham Parab, Irene Y Chen, Peter Washington</p>
+            <p class="venue">npj Digital Medicine, Nature</p>
+            <a href="https://www.nature.com/articles/s41746-025-01934-2">Nature →</a>
+          </div>
+        </li> 
+
+          <li class="pub-item">
+            <span class="pub-badge badge-year">2024</span>
+            <div class="pub-body">
+              <strong>[5] Evaluating Fair Feature Selection in Machine Learning for Healthcare</strong>
+              <p class="authors">Md Rahat Shahriar Zawad, Peter Washington</p>
+              <p class="venue">ArXiv Preprint</p>
+              <a href="https://arxiv.org/pdf/2403.19165">ArXiv →</a>
+            </div>
+          </li>
+
+          <li class="pub-item">
+            <span class="pub-badge badge-year">2023</span>
+            <div class="pub-body">
+              <strong>[4] State-of-the-art of Stress Prediction from Heart Rate Variability Using Artificial Intelligence</strong>
+              <p class="authors">M. Y. Haque, M. R. S. Zawad, C. S. A. Rony, M. H. A. Banna, T. Ghosh, M. S. Kaiser, M. Mahmud</p>
+              <p class="venue">Cognitive Computation, Springer</p>
+              <a href="https://link.springer.com/article/10.1007/s12559-023-10200-0">Springer →</a>
+            </div>
+          </li>
+
+          <li class="pub-item">
+            <span class="pub-badge badge-year">2022</span>
+            <div class="pub-body">
+              <strong>[3] A Hybrid Approach for Stress Prediction from HRV</strong>
+              <p class="authors">M. R. S. Zawad, C. S. A. Rony, Y. Haque, H. A. Banna, M. Mahmud, M. S. Kaiser</p>
+              <p class="venue">Lecture Notes in Networks and Systems, Springer Nature</p>
+              <a href="https://www.researchgate.net/profile/Chowdhury-Rony/publication/370426379_A_Hybrid_Approach_for_Stress_Prediction_from_Heart_Rate_Variability/links/652cd0c70e4a1710e50dc989/A-Hybrid-Approach-for-Stress-Prediction-from-Heart-Rate-Variability.pdf">PDF →</a>
+            </div>
+          </li>
+
+          <li class="pub-item">
+            <span class="pub-badge badge-year">2022</span>
+            <div class="pub-body">
+              <strong>[2] Computational Intelligence in Depression Detection</strong>
+              <p class="authors">M. R. S. Zawad, Y. Haque, M. Mahmud, M. S. Kaiser, T. Chen</p>
+              <p class="venue">Artificial Intelligence in Healthcare, Brain Informatics and Health, Springer</p>
+              <a href="https://link.springer.com/chapter/10.1007/978-981-19-5272-2_7">Springer →</a>
+            </div>
+          </li>
+
+          <li class="pub-item">
+            <span class="pub-badge badge-year">2021</span>
+            <div class="pub-body">
+              <strong>[1] A Comparative Review of Image Processing Based Crack Detection Techniques on Civil Engineering Structures</strong>
+              <p class="authors">M. R. S. Zawad, M. F. S. Zawad, M. A. Rahman, S. N. Priyom</p>
+              <p class="venue">Journal of Soft Computing in Civil Engineering (SCCE)</p>
+              <a href="https://www.jsoftcivil.com/article_136766_68c5194a2dae19e0da1623236bf6d70d.pdf">PDF →</a>
+            </div>
+          </li>
+
+          <li class="pub-item">
+            <span class="pub-badge badge-review">Under Review</span>
+            <div class="pub-body">
+              <strong>Remote Assessment of Parkinson’s Disease Using Deep Learning on Structured Mouse Trace Data from Suspected Cases</strong>
+              <p class="authors">Md Rahat Shahriar Zawad, Zerin Nasrin Tumpa, Lydia Sollis, Shubham Parab, Peter Washington</p>
+              <p class="venue">JMIR Fromative Research</p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+
+
+    <section id="experiences" class="page-section"></section>
+      <div>
+        <h2 class="section-title">Experiences</h2>
+        <div class="timeline">
+
+          <div class="timeline-entry">
+            <div class="date-col"><span class="date-range">Aug 2023 – Dec 2023<br>Jan 2024 – July 2025</span></div>
+            <div class="entry-card">
+              <div class="icon-dot"><i class="fas fa-flask"></i></div>
+              <h4>Graduate Research Assistant</h4>
+              <p class="sub">Hawaii Digital Health Lab · University of Hawaiʻi at Mānoa</p>
+              <ul>
+                <li>Designed a fair feature selection strategy for ML in Healthcare. <a href="https://arxiv.org/pdf/2403.19165">ArXiv</a></li>
+                <li>Co-built a gamified website to collect keystroke and mouse trace data for Parkinson's detection. <a href="https://parkinsonsurvey.github.io/src/index.html">Website</a></li>
+                <li>Built multimodal deep learning models (ViT, Swin, DenseNet, ResNet) to detect Parkinson's disease stages from mouse trace data. <a href="https://www.medrxiv.org/content/10.1101/2024.10.27.24316195v1.full.pdf">MedRxiv</a></li>
+                <li>Led a co-design session to develop a gamified website for fair and remote Parkinson's detection.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-entry">
+            <div class="date-col"><span class="date-range">Aug 2023 – Dec 2023<br>May 2024 – Present</span></div>
+            <div class="entry-card">
+              <div class="icon-dot"><i class="fas fa-chalkboard-teacher"></i></div>
+              <h4>Graduate Teaching Assistant</h4>
+              <p class="sub">Department of ICS · University of Hawaiʻi at Mānoa</p>
+              <ul>
+                <li>Assisted in Intro to CS I & II, Database Management Systems, and Data Networks.</li>
+                <li>Conducted lab sessions and held regular office hours for student support.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-entry">
+            <div class="date-col"><span class="date-range">Feb 2022 – Dec 2022</span></div>
+            <div class="entry-card">
+              <div class="icon-dot"><i class="fas fa-search"></i></div>
+              <h4>Research Fellow</h4>
+              <p class="sub">DiversAsia Project · Jahangirnagar University, Bangladesh</p>
+              <ul>
+                <li>Contributed to literature review, data analysis, and reporting for a funded study on inclusive higher education for students with disabilities.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-entry">
+            <div class="date-col"><span class="date-range">Feb 2021 – Mar 2021</span></div>
+            <div class="entry-card">
+              <div class="icon-dot"><i class="fas fa-briefcase"></i></div>
+              <h4>Intern</h4>
+              <p class="sub">Sterling Multi-Technologies Ltd · Dhaka, Bangladesh</p>
+              <ul>
+                <li>Gained hands-on experience in hospital automation software, database management, and patient health information systems at NINS and Dhaka Medical College Hospital.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="page-section"></section>
+      <div>
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+
+          <div class="project-card">
+            <h5>UHM-SchoolBook</h5>
+            <p>App for UHM students with Marketplace, House Sharing, and messaging functionalities.</p>
+            <div><span class="tools-tag">Flutter</span><span class="tools-tag">Firebase</span><span class="tools-tag">Riverpod</span></div>
+            <a href="https://uhmschoolbook.github.io" class="btn btn-primary btn-sm mt-3">Project Website →</a>
+          </div>
+
+          <div class="project-card">
+            <h5>1D CNN for EEG Motor Imagery Classification</h5>
+            <p>Classified motor imagery tasks from EEG signals using a 1D CNN with transfer learning, achieving up to 96.90% accuracy.</p>
+            <div><span class="tools-tag">Python</span><span class="tools-tag">TensorFlow</span><span class="tools-tag">MNE-Python</span></div>
+            <a href="https://github.com/RahatShahriarZawad/BCI_Project_Motor_Movement" class="btn btn-primary btn-sm mt-3">GitHub →</a>
+          </div>
+
+          <div class="project-card">
+            <h5>Explainability in Age Classification from Brain MRI</h5>
+            <p>Transfer learning (DenseNet201, ResNet50, InceptionV3) to classify brain MRI into age groups with explainability analysis.</p>
+            <div><span class="tools-tag">Python</span><span class="tools-tag">TensorFlow</span><span class="tools-tag">nibabel</span></div>
+            <a href="https://github.com/RahatShahriarZawad/ICS-635-final-project" class="btn btn-primary btn-sm mt-3">GitHub →</a>
+          </div>
+
+          <div class="project-card">
+            <h5>Wind Speed Prediction</h5>
+            <p>Predicts wind gust speed across Australian regions using the Australia Weather Dataset and ML techniques.</p>
+            <div><span class="tools-tag">Python</span><span class="tools-tag">Pandas</span><span class="tools-tag">Scikit-learn</span></div>
+            <a href="https://github.com/RahatShahriarZawad/Wind_Gust_Speed_prediction" class="btn btn-primary btn-sm mt-3">GitHub →</a>
+          </div>
+
+          <div class="project-card">
+            <h5>Heart Failure Prediction</h5>
+            <p>Analyzes heart failure outcomes using ML algorithms to surface healthcare insights and support early intervention.</p>
+            <div><span class="tools-tag">Python</span><span class="tools-tag">Pandas</span><span class="tools-tag">Scikit-learn</span></div>
+            <a href="https://github.com/RahatShahriarZawad/Heart-Failure-Prediction" class="btn btn-primary btn-sm mt-3">GitHub →</a>
+          </div>
+
+          <div class="project-card">
+            <h5>Railway Management System</h5>
+            <p>Web-based system for train scheduling, ticket booking and cancellation with full admin capabilities.</p>
+            <div><span class="tools-tag">PHP</span><span class="tools-tag">MySQL</span><span class="tools-tag">Ajax</span></div>
+            <a href="https://github.com/RahatShahriarZawad/Railway-Mangement-DBMS-Project-" class="btn btn-primary btn-sm mt-3">GitHub →</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; Rahat</p>
+  <footer>
+    <p>&copy; 2025 Md Rahat Shahriar Zawad</p>
   </footer>
 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
